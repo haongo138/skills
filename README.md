@@ -6,7 +6,9 @@ A collection of Claude Code skills. Each skill lives in its own directory with a
 
 | Skill | Description |
 |-------|-------------|
-| [frontend-fix](./frontend-fix) | Investigate frontend bugs on a running localhost app via live browser inspection; produces a fix plan and waits for approval before editing. |
+| [dev-browser-verify](./dev-browser-verify) | Investigate frontend bugs on a running localhost app via live browser inspection; produces a fix plan and waits for approval before editing. |
+| [excalidraw-diagram](./excalidraw-diagram) | Draw editable diagrams in Excalidraw; default for all diagram requests. |
+| [skill-builder](./skill-builder) | Create new skills, optimize existing ones, or audit skill quality following Claude Code best practices. |
 
 ## Installation
 
@@ -17,7 +19,7 @@ Skills are loaded from directories listed in your Claude Code plugin/skill confi
 ```bash
 git clone https://github.com/<owner>/skills.git ~/src/skills
 mkdir -p ~/.claude/skills
-ln -s ~/src/skills/frontend-fix ~/.claude/skills/frontend-fix
+ln -s ~/src/skills/dev-browser-verify ~/.claude/skills/dev-browser-verify
 ```
 
 Repeat the `ln -s` line for each skill you want installed.
@@ -27,7 +29,7 @@ Repeat the `ln -s` line for each skill you want installed.
 ```bash
 mkdir -p ~/.claude/skills
 git clone https://github.com/<owner>/skills.git ~/.claude/skills-repo
-ln -s ~/.claude/skills-repo/frontend-fix ~/.claude/skills/frontend-fix
+ln -s ~/.claude/skills-repo/dev-browser-verify ~/.claude/skills/dev-browser-verify
 ```
 
 ### Option 3: Per-project
@@ -46,12 +48,12 @@ Skills auto-trigger based on their `description`. You rarely need to invoke one 
 > the login button on http://localhost:3000 does nothing when I click it
 ```
 
-The `frontend-fix` skill matches this and Claude will connect to your browser, reproduce, and propose a plan.
+The `dev-browser-verify` skill matches this and Claude will connect to your browser, reproduce, and propose a plan.
 
 To invoke a skill explicitly:
 
 ```
-> use the frontend-fix skill to investigate the modal bug
+> use the dev-browser-verify skill to investigate the modal bug
 ```
 
 Each skill's `SKILL.md` documents its own prerequisites, inputs, and outputs. Read it before first use.
