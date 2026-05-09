@@ -1,9 +1,9 @@
 ---
-name: frontend-fix
+name: dev-browser-verify
 description: Investigate and plan fixes for frontend issues on the user's running localhost app using dev-browser. Use whenever the user reports a UI bug, visual glitch, broken interaction, layout problem, console error, or frontend change on a running dev server — even when they don't explicitly mention browsers or debugging. Connects to the user's Chrome tab via remote debugging, inspects the live page (DOM, console, network, screenshots), produces a concrete implementation plan, and waits for explicit user approval before writing code.
 ---
 
-# Frontend Fix
+# Dev Browser Verify
 
 Turn a vague frontend brief ("modal is broken", "button does nothing") into a verified, approved fix plan by looking at the live running app **before** touching source.
 
