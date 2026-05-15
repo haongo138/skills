@@ -2,7 +2,7 @@
 
 Complete technical reference for Claude Code skills. This document covers all frontmatter fields, advanced patterns, argument passing, troubleshooting, and how skills fit into your project.
 
-Source: https://code.claude.com/docs/en/skills
+Source: <https://code.claude.com/docs/en/skills>
 
 ---
 
@@ -53,6 +53,7 @@ How `disable-model-invocation` and `user-invocable` interact:
 | `user-invocable: false` | No | Yes | Description always in context. Full skill loads when Claude invokes. |
 
 Key nuances:
+
 - `user-invocable` only controls `/` menu visibility, NOT the Skill tool. To block programmatic invocation, use `disable-model-invocation: true`.
 - `disable-model-invocation: true` is the strongest restriction. It removes the skill from Claude's context entirely AND prevents Skill tool access.
 
@@ -180,6 +181,7 @@ Summarize this pull request...
 ```
 
 When this runs:
+
 1. Each `!`command`` executes immediately (before Claude sees anything)
 2. The output replaces the placeholder
 3. Claude receives the fully-rendered prompt with actual data
@@ -187,6 +189,7 @@ When this runs:
 This is preprocessing. Claude only sees the final result, not the commands.
 
 **Use cases:**
+
 - Injecting git status, branch info, or diff data
 - Fetching live API responses
 - Reading environment variables or config files
@@ -212,17 +215,20 @@ Research $ARGUMENTS thoroughly:
 ```
 
 **When to use `context: fork`:**
+
 - The task is self-contained and doesn't need conversation history
 - The skill produces verbose output you want to keep out of main context
 - You want to enforce tool restrictions via the agent type
 - The skill is computationally expensive and a cheaper model suffices
 
 **When NOT to use `context: fork`:**
+
 - The skill contains guidelines (like "use these API conventions") without a concrete task. The subagent receives guidelines but no actionable prompt and returns nothing useful.
 - The skill needs back-and-forth conversation with the user
 - The skill needs context from the current conversation
 
 **Agent options:**
+
 - `Explore` -- Haiku, read-only. Best for research, file discovery, code search.
 - `Plan` -- Inherits model, read-only. Best for planning research.
 - `general-purpose` -- Inherits model, all tools. Best for complex multi-step tasks.
@@ -299,6 +305,7 @@ Run the visualization script:
 ```bash
 python ~/.claude/skills/codebase-visualizer/scripts/visualize.py .
 ```
+
 ```
 
 The skill provides orchestration instructions while the bundled script does the heavy lifting. This pattern works for dependency graphs, test coverage reports, API docs, or any visual output.
@@ -336,12 +343,14 @@ The word can appear anywhere -- in a comment, a heading, or inline text. Its pre
 Three ways to control which skills Claude can invoke:
 
 **1. Disable all skills** by denying the Skill tool in `/permissions`:
+
 ```
 # Add to deny rules:
 Skill
 ```
 
 **2. Allow or deny specific skills** using permission rules:
+
 ```
 # Allow only specific skills
 Skill(commit)
@@ -400,10 +409,10 @@ If a skill with `context: fork` returns empty or unhelpful results:
 
 ## Related Documentation
 
-- **Skills main docs:** https://code.claude.com/docs/en/skills
-- **Subagents:** https://code.claude.com/docs/en/sub-agents
-- **Hooks:** https://code.claude.com/docs/en/hooks
-- **Plugins:** https://code.claude.com/docs/en/plugins
-- **Memory (CLAUDE.md):** https://code.claude.com/docs/en/memory
-- **Permissions:** https://code.claude.com/docs/en/permissions
-- **Interactive mode:** https://code.claude.com/docs/en/interactive-mode
+- **Skills main docs:** <https://code.claude.com/docs/en/skills>
+- **Subagents:** <https://code.claude.com/docs/en/sub-agents>
+- **Hooks:** <https://code.claude.com/docs/en/hooks>
+- **Plugins:** <https://code.claude.com/docs/en/plugins>
+- **Memory (CLAUDE.md):** <https://code.claude.com/docs/en/memory>
+- **Permissions:** <https://code.claude.com/docs/en/permissions>
+- **Interactive mode:** <https://code.claude.com/docs/en/interactive-mode>
