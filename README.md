@@ -6,10 +6,8 @@ A collection of Claude Code skills. Each skill lives in its own directory with a
 
 | Skill | Description |
 |-------|-------------|
-| [dev-browser-verify](./dev-browser-verify) | Investigate frontend bugs on a running localhost app via live browser inspection; produces a fix plan and waits for approval before editing. |
 | [ascii-diagrams](./ascii-diagrams) | Draw software-engineering diagrams (flowcharts, sequence, state, ER, architecture, timelines) as plain-text ASCII/Unicode art, with a bundled alignment linter. |
 | [ui-debug-loop](./ui-debug-loop) | Measurement-driven loop for reproducing and fixing visual/layout bugs (clipping, overflow, responsive breakpoints, scroll animations) in a running web app via the ego-browser CLI. |
-| [excalidraw-diagram](./excalidraw-diagram) | Draw editable diagrams in Excalidraw; default for all diagram requests. |
 | [skill-builder](./skill-builder) | Create new skills, optimize existing ones, or audit skill quality following Claude Code best practices. |
 
 ## Installation
@@ -21,7 +19,7 @@ Skills are loaded from directories listed in your Claude Code plugin/skill confi
 ```bash
 git clone https://github.com/<owner>/skills.git ~/src/skills
 mkdir -p ~/.claude/skills
-ln -s ~/src/skills/dev-browser-verify ~/.claude/skills/dev-browser-verify
+ln -s ~/src/skills/ui-debug-loop ~/.claude/skills/ui-debug-loop
 ```
 
 Repeat the `ln -s` line for each skill you want installed.
@@ -31,7 +29,7 @@ Repeat the `ln -s` line for each skill you want installed.
 ```bash
 mkdir -p ~/.claude/skills
 git clone https://github.com/<owner>/skills.git ~/.claude/skills-repo
-ln -s ~/.claude/skills-repo/dev-browser-verify ~/.claude/skills/dev-browser-verify
+ln -s ~/.claude/skills-repo/ui-debug-loop ~/.claude/skills/ui-debug-loop
 ```
 
 ### Option 3: Per-project
@@ -47,15 +45,15 @@ Start a Claude Code session and run `/skills` (or ask "what skills do you have?"
 Skills auto-trigger based on their `description`. You rarely need to invoke one by hand — just describe what you're doing and Claude matches the skill.
 
 ```
-> the login button on http://localhost:3000 does nothing when I click it
+> the hero headline on http://localhost:3000 gets cut off on mobile
 ```
 
-The `dev-browser-verify` skill matches this and Claude will connect to your browser, reproduce, and propose a plan.
+The `ui-debug-loop` skill matches this and Claude will measure the overflow across viewports, fix it, and re-verify.
 
 To invoke a skill explicitly:
 
 ```
-> use the dev-browser-verify skill to investigate the modal bug
+> use the ui-debug-loop skill to investigate the clipped modal
 ```
 
 Each skill's `SKILL.md` documents its own prerequisites, inputs, and outputs. Read it before first use.
