@@ -8,6 +8,7 @@ A collection of Claude Code skills. Each skill lives in its own directory with a
 |-------|-------------|
 | [dev-browser-verify](./dev-browser-verify) | Investigate frontend bugs on a running localhost app via live browser inspection; produces a fix plan and waits for approval before editing. |
 | [ascii-diagrams](./ascii-diagrams) | Draw software-engineering diagrams (flowcharts, sequence, state, ER, architecture, timelines) as plain-text ASCII/Unicode art, with a bundled alignment linter. |
+| [ui-debug-loop](./ui-debug-loop) | Measurement-driven loop for reproducing and fixing visual/layout bugs (clipping, overflow, responsive breakpoints, scroll animations) in a running web app via the ego-browser CLI. |
 | [excalidraw-diagram](./excalidraw-diagram) | Draw editable diagrams in Excalidraw; default for all diagram requests. |
 | [skill-builder](./skill-builder) | Create new skills, optimize existing ones, or audit skill quality following Claude Code best practices. |
 
